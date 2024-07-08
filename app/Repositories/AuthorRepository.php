@@ -15,7 +15,7 @@ class AuthorRepository
     public function getAuthors()
     {
         $cache = Cache::remember('authors', now()->addMinutes(150), function () {
-            return Authors::orderBy('id','DESC')->get();dd($Authors);
+            return Authors::orderBy('id','DESC')->get();
         });
 
         return $cache;

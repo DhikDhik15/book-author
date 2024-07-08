@@ -15,11 +15,11 @@ class CreateBooks extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('pengenal')->nullable();
-            $table->string('judul')->nullable();
-            $table->string('keterangan')->nullable();
-            $table->date('tanggal_publikasi')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->date('publish_date')->nullable();
+            $table->unsignedBigInteger('author_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

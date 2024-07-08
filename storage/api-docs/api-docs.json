@@ -1,0 +1,239 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dokumentasi API",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/authors": {
+            "post": {
+                "tags": [
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "bio": {
+                                        "type": "string"
+                                    },
+                                    "birth_date": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/authors/": {
+            "get": {
+                "tags": [
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/approval-stages": {
+            "post": {
+                "tags": [
+                    "Approval Stage"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "approver_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/approval-stages/{id}": {
+            "put": {
+                "tags": [
+                    "Approval Stage"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "approver_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/expense": {
+            "post": {
+                "tags": [
+                    "Expense"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "amount": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/expense/{id}/approve": {
+            "put": {
+                "tags": [
+                    "Expense"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "approver_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/expense/{id}": {
+            "get": {
+                "tags": [
+                    "Expense"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        }
+
+
+    }
+}

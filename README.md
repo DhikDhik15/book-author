@@ -11,4 +11,5 @@
 
 - DB NAME: book_author,
 - composer update
-- http://localhost:8000/api/documentation.
+- http://localhost:8000/api/documentation
+- php artisan test

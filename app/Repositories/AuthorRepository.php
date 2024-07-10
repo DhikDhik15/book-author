@@ -14,7 +14,7 @@ class AuthorRepository
 
     public function getAuthors()
     {
-        $cache = Cache::remember('authors', now()->addMinutes(150), function () {
+        $cache = Cache::remember('authors', now()->addMinutes(5), function () {
             return Authors::orderBy('id','DESC')->get();
         });
 
@@ -30,7 +30,7 @@ class AuthorRepository
 
     public function show(int $id)
     {
-        $cache = Cache::remember('author', now()->addMinutes(150), function () use($id) {
+        $cache = Cache::remember('author', now()->addMinutes(5), function () use($id) {
             return Authors::find($id);
         });
 
@@ -42,5 +42,16 @@ class AuthorRepository
         $find = Authors::find($id);
 
         return $find->delete();
+    }
+
+    public function getAssociations(int $id)
+    {
+        $author = Authors::find($id);
+
+        $cache = Cache::remember('associations', now()->addMinutes(), function () use($author) {
+            return $author->books;
+        });
+
+        return $cache;
     }
 }

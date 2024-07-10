@@ -69,7 +69,6 @@
             }
         },
 
-
         "/authors/{authorId}": {
             "get": {
                 "tags": [
@@ -165,150 +164,165 @@
             }
         },
 
-        "/approval-stages": {
-            "post": {
-                "tags": [
-                    "Approval Stage"
-                ],
-                "consumes": "application/json",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "approver_id": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success"
-                    },
-                    "500": {
-                        "description": "Failed !!"
-                    }
-                }
-            }
-        },
-
-        "/approval-stages/{id}": {
-            "put": {
-                "tags": [
-                    "Approval Stage"
-                ],
-                "consumes": "application/json",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "type":"number",
-                        "required": "true"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "approver_id": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success"
-                    },
-                    "500": {
-                        "description": "Failed !!"
-                    }
-                }
-            }
-        },
-
-        "/expense": {
-            "post": {
-                "tags": [
-                    "Expense"
-                ],
-                "consumes": "application/json",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "amount": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success"
-                    },
-                    "500": {
-                        "description": "Failed !!"
-                    }
-                }
-            }
-        },
-
-        "/expense/{id}/approve": {
-            "put": {
-                "tags": [
-                    "Expense"
-                ],
-                "consumes": "application/json",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "type":"number",
-                        "required": "true"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "approver_id": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "success"
-                    },
-                    "500": {
-                        "description": "Failed !!"
-                    }
-                }
-            }
-        },
-
-        "/expense/{id}": {
+        "/authors/{id}/books": {
             "get": {
                 "tags": [
-                    "Expense"
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/books": {
+            "post": {
+                "tags": [
+                    "Books"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "publish_date": {
+                                        "type": "string"
+                                    },
+                                    "author_id": {
+                                        "type":"number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/books/": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "consumes": "application/json",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/books/{bookId}": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/books/{id}": {
+            "put": {
+                "tags": [
+                    "Books"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "publish_date": {
+                                        "type": "string"
+                                    },
+                                    "author_id": {
+                                        "type":"number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/books/{id}/": {
+            "delete": {
+                "tags": [
+                    "Books"
                 ],
                 "consumes": "application/json",
                 "parameters": [
@@ -329,7 +343,6 @@
                 }
             }
         }
-
 
     }
 }

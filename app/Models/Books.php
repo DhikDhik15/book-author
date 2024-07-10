@@ -2,24 +2,23 @@
 
 namespace App\Models;
 
-use App\Models\Books;
+use App\Models\Authors;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Authors extends Model
+class Books extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $connection = 'mysql';
 
-    protected $table = 'users';
+    protected $table = 'books';
 
     protected $guarded = ['id'];
 
-    public function books()
+    public function author()
     {
-        return $this->hasMany(Books::class, 'author_id');
+        return $this->hasOne(Authors::class, 'id', 'author_id'); //relation to author
     }
-
 }

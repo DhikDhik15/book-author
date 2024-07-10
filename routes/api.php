@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('authors', AuthorController::class);
+Route::get('authors/{id}/books', [AuthorController::class,'associations']);
 Route::resource('books', BookController::class);

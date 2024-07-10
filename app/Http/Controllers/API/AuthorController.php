@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AuthorResource;
 use App\Repositories\AuthorRepository;
+use App\Http\Resources\AssociationsResource;
 
 class AuthorController extends Controller
 {
@@ -102,6 +103,24 @@ class AuthorController extends Controller
 
             return response([
                 'message' => 'success',
+                'code' => 200
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th,
+                'code' => 500
+            ]);
+        }
+    }
+
+    public function associations(int $id)
+    {
+        try {
+            $authors = $this->author->getAssociations($id);
+
+            return response([
+                'message' => 'success',
+                'content' => new AssociationsResource($authors),
                 'code' => 200
             ]);
         } catch (\Throwable $th) {

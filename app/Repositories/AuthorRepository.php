@@ -20,4 +20,27 @@ class AuthorRepository
 
         return $cache;
     }
+
+    public function update(array $data, int $id)
+    {
+        $author = Authors::find($id);
+
+        return $author->update($data);
+    }
+
+    public function show(int $id)
+    {
+        $cache = Cache::remember('author', now()->addMinutes(150), function () use($id) {
+            return Authors::find($id);
+        });
+
+        return $cache;
+    }
+
+    public function delete($id)
+    {
+        $find = Authors::find($id);
+
+        return $find->delete();
+    }
 }

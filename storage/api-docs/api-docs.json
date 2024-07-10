@@ -69,6 +69,102 @@
             }
         },
 
+
+        "/authors/{authorId}": {
+            "get": {
+                "tags": [
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/authors/{id}": {
+            "put": {
+                "tags": [
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "bio": {
+                                        "type": "string"
+                                    },
+                                    "birth_date": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/authors/{id}/": {
+            "delete": {
+                "tags": [
+                    "Authors"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
         "/approval-stages": {
             "post": {
                 "tags": [

@@ -59,4 +59,56 @@ class AuthorController extends Controller
             ]);
         }
     }
+
+    public function update(Request $request, int $id)
+    {
+        try {
+            $author = $this->author->update($request->all(), $id);
+
+            return response([
+                'message' => 'success',
+                'code' => 200
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th,
+                'code' => 500
+            ]);
+        }
+    }
+
+    public function show(int $id)
+    {
+        try {
+            $author = $this->author->show($id);
+
+            return response()->json([
+                'message' => 'success',
+                'data' => $author,
+                'code' => 200
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th,
+                'code' => 500
+            ]);
+        }
+    }
+
+    public function destroy(int $id)
+    {
+        try {
+            $author = $this->author->delete($id);
+
+            return response([
+                'message' => 'success',
+                'code' => 200
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th,
+                'code' => 500
+            ]);
+        }
+    }
 }

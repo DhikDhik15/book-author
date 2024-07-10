@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\BookController;
 use App\Http\Controllers\API\AuthorController;
 
 /*
@@ -20,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('authors', AuthorController::class);
-Route::resource('books', UserController::class);
+Route::resource('books', BookController::class);
